@@ -1,0 +1,17 @@
+* {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+
+img {
+    width: auto;
+    height: 50vh;
+    padding:1px;
+    border:7px solid grey;
+ }
+
+ p {
+     color: grey;
+ }
+
