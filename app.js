@@ -16,37 +16,34 @@ function getRandomColor() {
   return color;
 }
 
+// Gets a random number between 1 and 2020 (The number of XKCD comics in existence at the time of this writing)
+// and returns a link to the JSON of that comic
 function randomComic() {
-  var comicNumber = Math.floor(Math.random() * 2018);
+  var comicNumber = Math.floor(Math.random() * 2020);
   var link = 'https://galvanize-cors.herokuapp.com/https://xkcd.com//info.0.json';
   link = link.insert(54, comicNumber);
   return link
 }
 
-randomComic()
 
 
 $(document).ready(function(){
 
-  console.log("Hey I am ready")
+console.log("Hey I am ready")
 
-    $.get(randomComic())
-      .then(function(data){
-        console.log(data);
-        $('h1').text(data.title);
-        $('p').text(data.alt);
-        $('img').attr('src',data.img);
+// Fills website with info from the randomComic JSON
+$.get(randomComic())
+  .then(function(data){
+    console.log(data);
+    $('h1').text(data.title);
+    $('p').text(data.alt);
+    $('img').attr('src',data.img);
 
-        var pSafeTitle = $('<p></p>').text(data.safe_title);
-        var pComicNum = $('<p></p>').text(data.num)
+    var pSafeTitle = $('<p></p>').text(data.safe_title);
+    var pComicNum = $('<p></p>').text(data.num)
 
-        $('body').append(pSafeTitle, pComicNum);
-        
-        
-        //var txt2 = $("<p></p>").text("Text.");   // Create with jQuery
-        //$("body").append(txt1, txt2, txt3);      // Append the new elements 
-        
-      })
+    $('body').append(pSafeTitle, pComicNum);
+  })
 })
 
 $('#navi').click(function() {
