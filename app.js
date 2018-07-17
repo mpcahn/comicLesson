@@ -55,3 +55,6 @@ $('#wallPaper').click(function() {
   $("body").css("background-color", getRandomColor);
 })
 
+$('#comic').click(function() {
+  location.reload();
+})
